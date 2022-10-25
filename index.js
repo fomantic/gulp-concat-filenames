@@ -1,8 +1,7 @@
 var through = require('through');
 var path = require('path');
-var gutil = require('gulp-util');
-var File = gutil.File;
-var PluginError = gutil.PluginError;
+var Vinyl = require('vinyl');
+var PluginError = require('plugin-error');
 
 function concatFilenames(filename, opts) {
     'use strict';
@@ -24,7 +23,7 @@ function concatFilenames(filename, opts) {
     }
 
     if (typeof opts.newLine !== 'string') {
-        opts.newLine = gutil.linefeed;
+        opts.newLine = '\n';
     }
 
     var buffer = [],
@@ -62,7 +61,7 @@ function concatFilenames(filename, opts) {
             opts.newLine
         ].join('');
 
-        buffer.push(new Buffer(thisRequire));
+        buffer.push(Buffer.from(thisRequire));
     }
 
     function endStream() {
@@ -73,7 +72,7 @@ function concatFilenames(filename, opts) {
         var outFileContents = Buffer.concat(buffer),
             outFilePath = path.join(firstfile.base, filename);
 
-        var outFile = new File({
+        var outFile = new Vinyl({
             cwd: firstfile.cwd,
             base: firstfile.base,
             path: outFilePath,

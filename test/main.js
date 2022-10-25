@@ -5,7 +5,6 @@ var concatFilenames = require('../index.js'),
     sinonChai = require('sinon-chai'),
     expect = chai.expect,
     assert = require('stream-assert'),
-    File = require('gulp-util').File,
     gulp = require('gulp'),
     path = require('path');
 
