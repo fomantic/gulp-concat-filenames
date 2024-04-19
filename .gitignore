@@ -8,3 +8,4 @@ coverage
 plato
 .vscode
 .idea
+.nyc_output
