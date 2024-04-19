@@ -220,7 +220,7 @@ describe('Given gulp-concat-filenames', function () {
                                 /* jshint ignore:end */
                                 return filename;
                             }
-                        }))
+                        }), function () {})
                         .on('error', function (err) {
                             expect(err.message).to.have.string('Error in template function');
                             done();
@@ -235,10 +235,10 @@ describe('Given gulp-concat-filenames', function () {
                         .src(fixtures('*'))
                         .pipe(concatFilenames('mainfest.txt', {
                             root: 'fixtures',
-                            template: function() {
+                            template: function () {
                                 return 5;
                             }
-                        }))
+                        }), function() {})
                         .on('error', function (err) {
                             expect(err.message).to.equal('Error in template function');
                             done();
