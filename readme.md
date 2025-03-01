@@ -7,7 +7,7 @@
 | Package      | gulp-concat-filenames                                                                                 |
 |--------------|-------------------------------------------------------------------------------------------------------|
 | Description  | Similar to concat, but creates a list of names in the output file, rather than contents being merged. |
-| Node Version | >= 12                                                                                                 |
+| Node Version | >= 18                                                                                                 |
 
  
 ---
